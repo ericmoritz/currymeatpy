@@ -21,6 +21,10 @@ def test_curry():
     assert foo_int({"foo": 1}) == 1
     assert foo_int({}) == 0
 
+
+def test_curry_named_args():
+    """Ideally, we'd like to be able to curry an argument using a
+    keyword"""
     half = div(b=2)
     assert half(100) == 50.0
 
@@ -31,7 +35,7 @@ def test_needed_args():
 
     assert currymeat._needed_args(foo) == ['key', 'd']
 
-
+    
 def test_reduce_needed_args():
     assert (
         currymeat._reduce_needed_args(['key', 'd'], ('foo', ))
